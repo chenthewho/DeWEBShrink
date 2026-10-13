@@ -1,0 +1,756 @@
+{
+  "generatedAt": "2026-10-12T14:20:19.787Z",
+  "endpoint": "https://yutingprod.com/mcp/",
+  "auth": "api-key",
+  "sdkClient": true,
+  "summary": {
+    "pass": 98,
+    "fail": 0,
+    "scored": 98,
+    "recorded": 17
+  },
+  "byGroup": {
+    "⓪ 真实 MCP 客户端连接（SDK + Streamable HTTP）": {
+      "pass": 4,
+      "fail": 0,
+      "info": 1
+    },
+    "① 端点、鉴权与协议边界（裸 HTTP）": {
+      "pass": 13,
+      "fail": 0,
+      "info": 2
+    },
+    "② 计费模型与估算（纯计算，不碰文件）": {
+      "pass": 12,
+      "fail": 0,
+      "info": 1
+    },
+    "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）": {
+      "pass": 11,
+      "fail": 0,
+      "info": 3
+    },
+    "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件": {
+      "pass": 15,
+      "fail": 0,
+      "info": 1
+    },
+    "⑤ 扫描诊断：隐藏文件、断链、重复、超限": {
+      "pass": 7,
+      "fail": 0,
+      "info": 1
+    },
+    "⑥ 校验：能不能拦住坏产物": {
+      "pass": 13,
+      "fail": 0,
+      "info": 0
+    },
+    "⑦ 增量账单：只改一个文件、删文件、首次部署": {
+      "pass": 7,
+      "fail": 0,
+      "info": 1
+    },
+    "⑧ 输入健壮性：路径、重复、缺内容、空参数": {
+      "pass": 12,
+      "fail": 0,
+      "info": 3
+    },
+    "⑨ 性能与并发": {
+      "pass": 4,
+      "fail": 0,
+      "info": 4
+    }
+  },
+  "checks": [
+    {
+      "group": "⓪ 真实 MCP 客户端连接（SDK + Streamable HTTP）",
+      "name": "initialize 握手成功（标准客户端能连上共享主机桥接）",
+      "ok": true,
+      "detail": "via Client"
+    },
+    {
+      "group": "⓪ 真实 MCP 客户端连接（SDK + Streamable HTTP）",
+      "name": "服务端 self-report",
+      "ok": null,
+      "detail": "deweb-shrink 0.3.0"
+    },
+    {
+      "group": "⓪ 真实 MCP 客户端连接（SDK + Streamable HTTP）",
+      "name": "本地 stdio 客户端也连上（对照组，用于对拍）",
+      "ok": true,
+      "detail": "src/index.js"
+    },
+    {
+      "group": "⓪ 真实 MCP 客户端连接（SDK + Streamable HTTP）",
+      "name": "tools/list 返回 6 个工具",
+      "ok": true,
+      "detail": "cost_model, scan, estimate, optimize, verify, diff"
+    },
+    {
+      "group": "⓪ 真实 MCP 客户端连接（SDK + Streamable HTTP）",
+      "name": "工具名与文档一致（无 tape_ 遗留前缀）",
+      "ok": true,
+      "detail": "cost_model, scan, estimate, optimize, verify, diff"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "GET /mcp/ 探活 200",
+      "ok": true,
+      "detail": "167ms"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "探活自称 deweb-shrink",
+      "ok": true,
+      "detail": "{\"ok\":true,\"service\":\"deweb-shrink\",\"mode\":\"on-demand-stdio\",\"authRequired\":true}"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "部署形态",
+      "ok": null,
+      "detail": "on-demand-stdio"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "探活不需要 key（方便负载均衡）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "不带 key → 401",
+      "ok": true,
+      "detail": "HTTP 401 {\"error\":\"unauthorized\",\"hint\":\"请在 x-api-key 头里带上 key，或用 Aut"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "错误 key → 401",
+      "ok": true,
+      "detail": "HTTP 401"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "Authorization: Bearer 也能认证（不只 x-api-key）",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "PUT → 405（无状态端点只收 POST）",
+      "ok": true,
+      "detail": "HTTP 405"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "DELETE → 405（没有会话可删）",
+      "ok": true,
+      "detail": "HTTP 405"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "坏 JSON → 400 且提示明确",
+      "ok": true,
+      "detail": "HTTP 400 {\"error\":\"invalid json\",\"hint\":\"请求体应当是合法的 JSON-RPC 消息\"}"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "空 body → 400",
+      "ok": true,
+      "detail": "HTTP 400 {\"error\":\"empty body\",\"hint\":\"请求体应当是 JSON-RPC 消息\"}"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "notification（无 id）202 且不挂起",
+      "ok": true,
+      "detail": "HTTP 202 130ms"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "不存在的工具 → JSON-RPC 错误（不是 500）",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "/mcp/health 的实际行为（文档说这里会被前端兜底吃掉）",
+      "ok": null,
+      "detail": "HTTP 200 · text/html · <!doctype html> <html lang=\"en\">   <head"
+    },
+    {
+      "group": "① 端点、鉴权与协议边界（裸 HTTP）",
+      "name": "17MB 请求体被前端挡住（4xx + 可读错误，不是挂死 / 不是 500）",
+      "ok": true,
+      "detail": "HTTP 413 · 98307ms · {\"error\":\"payload too large\",\"detail\":\"这次传了约 17 MB，超过上限 16 MB\",\"hint\":"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "cost_model 调用成功",
+      "ok": true,
+      "detail": "946ms via mcp-client"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "常量与协议前端一致（24000 / 270000 / 235）",
+      "ok": true,
+      "detail": "CHUNK_BYTES=24000 perChunk=270000 perByte=235"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "1 MB 参考价 = 44 块 / 258,295,360 gas",
+      "ok": true,
+      "detail": "{\"chunks\":44,\"gas\":258295360,\"native\":0.012914768,\"usd\":9.64681510528}"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "1 MB ≈ 0.0129 BNB（$747.31 下 ≈ $9.6）",
+      "ok": true,
+      "detail": "0.012914768 BNB ≈ $9.65"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "xlayer 也能算（地板价 0.02 gwei）",
+      "ok": true,
+      "detail": "gasPrice=0.02 OKB"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "base 也能算",
+      "ok": true,
+      "detail": "ETH"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "liveGasPrice=true（读链上实时价）",
+      "ok": null,
+      "detail": "gasPrice 0.05 gwei · live=0.05"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "estimate 1MB 与 cost_model 的参考价一致（同一公式）",
+      "ok": true,
+      "detail": "gas=258295360"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "「多文件比大文件贵」：10×3KB 比 1×30KB 贵（块开销按文件向上取整）",
+      "ok": true,
+      "detail": "10 个文件 9919200 gas > 单文件 7759200 gas"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "estimate 0 字节不产生负数/异常（空文件仍算 1 块 = 一笔交易）",
+      "ok": true,
+      "detail": "{\"files\":1,\"chunks\":1,\"bytes\":0,\"gas\":270000,\"chunkGas\":270000,\"byteGas\":0,\"maxTxGasLimit\":400260,\"perFile\":[{\"path\":\"payload\",\"bytes\":0,\"chunks\":1,\"gas\":270000,\"chunkGas\":270000,\"byteGas\":0}]}"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "estimate 负数被夹到 0 再按 1 块计（不产生负账单）",
+      "ok": true,
+      "detail": "bytes=0 gas=270000"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "estimate 小数被向下取整",
+      "ok": true,
+      "detail": "bytes=1"
+    },
+    {
+      "group": "② 计费模型与估算（纯计算，不碰文件）",
+      "name": "远程与本地 estimate 逐字段一致",
+      "ok": true,
+      "detail": "remote=258295360 local=258295360"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程 scan（内容驱动）成功",
+      "ok": true,
+      "detail": "3678ms"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程 files 与本地 files 的账单完全一致",
+      "ok": true,
+      "detail": "remote 831130B/48块 vs local 831130B"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程 files 与本地 dir（真实目录）的账单一致（两种形态同一套算法）",
+      "ok": true,
+      "detail": "remote 21 文件 / 208275550 gas vs local 21 文件 / 208275550 gas"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "本地 stdio 对同一份文件 optimize 成功（对照组）",
+      "ok": true,
+      "detail": "2138ms · 产物 19 个"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程 optimize 成功（含图片的真实站点，最多重试 3 次）",
+      "ok": true,
+      "detail": "11009ms（第 1 次尝试）"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "重请求失败率（同一输入连续调用，由共享主机资源上限决定）",
+      "ok": null,
+      "detail": "0/1 次失败"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程优化确实变小",
+      "ok": true,
+      "detail": "831130 → 398123 字节"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程与本地的产物文件集合一致",
+      "ok": true,
+      "detail": "remote 19 个 vs local 19 个"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程与本地的删除清单一致（README / 无引用图标）",
+      "ok": true,
+      "detail": "icons/apple-touch-icon.png、README.md"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "非图片产物与本地逐字节一致（不一致 = 服务器上压缩退化了）",
+      "ok": true,
+      "detail": "共 16 个文件"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "图片产物的跨平台差异（libvips 编译不同 / 逐档挑质量时的浮点差）",
+      "ok": null,
+      "detail": "icons/icon-512.png：55975B vs 55979B"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "  icons/icon-512.png 像素对拍",
+      "ok": null,
+      "detail": "PSNR 73.65 dB（视觉不可分辨）"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "artifacts 的 base64 与 bytes 长度一致（没有截断/膨胀）",
+      "ok": true,
+      "detail": "19 个"
+    },
+    {
+      "group": "③ 真实站点对拍：远程 files ⇄ 本地 stdio（21 个文件 / 812 KB）",
+      "name": "远程优化的校验通过",
+      "ok": true,
+      "detail": "fail 0 / warn 1"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "默认档压缩成功",
+      "ok": true,
+      "detail": "省 375 字节"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "JS 压缩但保留被内联脚本引用的顶层全局 NixieClock",
+      "ok": true,
+      "detail": "134 → 81 字节"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "HTML 注释被压掉",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "激进 HTML 档比默认档更小",
+      "ok": true,
+      "detail": "483 → 470 字节"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "激进档校验依然通过",
+      "ok": true,
+      "detail": "fail 0"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "转 WebP：产物里出现 .webp、旧 .png 不再写入",
+      "ok": true,
+      "detail": "app.css, clock.js, index.html, logo.webp, robots.txt"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "转 WebP 后 HTML 引用被同步重写（历史上踩过的 404 bug）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "转 WebP 后校验不报断链/尺寸",
+      "ok": true,
+      "detail": "fail 0 / warn 0"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "真实 PNG 站点压缩成功且省钱",
+      "ok": true,
+      "detail": "988388 → 185067 字节（省 803321）"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "图片像素尺寸不变（只重编码）",
+      "ok": true,
+      "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "默认删掉 README / .map / 无引用图",
+      "ok": true,
+      "detail": "删除 app.js.map、docs/notes.md、README.md、unused.png"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "约定路径文件被保护（robots.txt / favicon.ico / apple-touch-icon.png 即使没引用也保留）",
+      "ok": true,
+      "detail": "app.css, app.js, apple-touch-icon.png, clock.js, favicon.ico, index.html, logo.png, robots.txt"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "被保护清单（报告里会说明，免得用户以为漏删了）",
+      "ok": null,
+      "detail": "apple-touch-icon.png、favicon.ico、robots.txt"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "被删文件的省下字节被算进账单",
+      "ok": true,
+      "detail": "省 694 字节"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "删除后校验通过",
+      "ok": true,
+      "detail": "fail 0"
+    },
+    {
+      "group": "④ 压缩能力：JS/CSS/HTML、图片、激进档、转 WebP、白花钱文件",
+      "name": "关掉删除开关后一个文件都不少（人工可控）",
+      "ok": true,
+      "detail": "12 个产物"
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "scan 调用成功",
+      "ok": true,
+      "detail": "410ms"
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "隐藏文件/目录被标为「协议会静默跳过」",
+      "ok": true,
+      "detail": ".DS_Store（hidden）、.shots/design-v1.png（hidden）、.well-known/assetlinks.json（hidden）"
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "断链引用被报出来",
+      "ok": true,
+      "detail": "[{\"from\":\"index.html\",\"ref\":\"missing.png\"}]"
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "重复内容被报出来",
+      "ok": true,
+      "detail": "[{\"path\":\"b.js\",\"sameAs\":\"a.js\",\"bytes\":11}]"
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "README.md 被标为「不像站点文件」",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "Content-Type 表照抄协议（.webmanifest 是未知扩展名 → octet-stream）",
+      "ok": true,
+      "detail": "application/octet-stream"
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "9 MiB 单文件在远程形态的实际行为",
+      "ok": null,
+      "detail": "被护栏拦住：这次传的内容太大：9.00 MB，上限是 8.00 MB。请分批调用 —— 先单独压最大的那几个文件，剩下的再传一批。（图片转 base64 后会膨胀约 1/3，如果原始字节接近上…"
+    },
+    {
+      "group": "⑤ 扫描诊断：隐藏文件、断链、重复、超限",
+      "name": "本地 dir 形态下 9 MiB 文件会被标为超限跳过（协议行为）",
+      "ok": true,
+      "detail": "toobig"
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "正常站点自洽校验通过",
+      "ok": true,
+      "detail": "fail 0 / warn 0"
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「入口 index.html」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「协议合法性」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「引用完整性」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「JS 语法」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「HTML 结构」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「跨文件全局」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「Content-Type」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "  校验项「单文件上限」存在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "把被引用的全局改名 → 对拍校验拦住",
+      "ok": true,
+      "detail": "clock.js 里的全局 NixieClock 被改名或删掉了，但别的文件还在用"
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "没有 index.html → 校验失败",
+      "ok": true,
+      "detail": "产物里没有 index.html —— 发布页会拒绝，或者站点打开就是 404"
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "新增断链 → 对拍校验拦住",
+      "ok": true,
+      "detail": "压缩后新增了 1 条断链：index.html → gone.png"
+    },
+    {
+      "group": "⑥ 校验：能不能拦住坏产物",
+      "name": "产物与原文一致时校验通过（不误报）",
+      "ok": true,
+      "detail": "fail 0"
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "首次部署（没有 previous）被识别",
+      "ok": true,
+      "detail": "total.gas=1822570"
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "首次部署的账单等于全量",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "只改一个文件被识别（其余跳过）",
+      "ok": true,
+      "detail": "{\"added\":0,\"changed\":1,\"unchanged\":5,\"removed\":0}"
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "增量明显比全量便宜（只重传改动的那一个文件）",
+      "ok": true,
+      "detail": "增量 296555 vs 全量 1822570 gas"
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "上传字节 = 那一个文件的新字节数（整份重传）",
+      "ok": true,
+      "detail": "113 vs 113"
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "同一份文件做 previous/next（无变化）",
+      "ok": null,
+      "detail": "changed=0 unchanged=6 upload.gas=0"
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "删除文件 → 计入 removeFile 的 gas（取下目录也要钱）",
+      "ok": true,
+      "detail": "removal.gas=356000"
+    },
+    {
+      "group": "⑦ 增量账单：只改一个文件、删文件、首次部署",
+      "name": "远程与本地 diff 账单一致",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "中文/空格路径能正常处理（NFC 归一化，不以 / 开头）",
+      "ok": true,
+      "detail": "index.html, 图片/图标 1.png, 脚本/主 程序.js"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "中文路径站点校验通过",
+      "ok": true,
+      "detail": "fail 0"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "前导斜杠被去掉（不是当成绝对路径）",
+      "ok": true,
+      "detail": "[\"leading/slash.html\"]"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "反斜杠被规范成 /（Windows 客户端友好）",
+      "ok": true,
+      "detail": "[\"dir/win.html\"]"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "重复路径 → 明确报错（不静默取最后一个）",
+      "ok": true,
+      "detail": "错误：files 里有重复路径「a.html」——请合并后再传"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "缺少 content/base64 → 明确报错",
+      "ok": true,
+      "detail": "错误：文件「a.html」缺少内容：需要 content（文本）、base64（二进制）或 bytes 之一"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "路径穿越被拒",
+      "ok": true,
+      "detail": "错误：非法路径「../../etc/passwd」：不能为空、不能含 .. 或控制字符、不能超过 1000 字符（协议也会拒绝这样的路径）"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "超长路径（>1000 字符）被拒",
+      "ok": true,
+      "detail": "错误：非法路径「a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "非法 base64 的行为",
+      "ok": null,
+      "detail": "容错通过：5 字节被算进账单"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "exclude 前缀生效",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "空参数 scan → 明确报错",
+      "ok": true,
+      "detail": "错误：缺少输入：服务器形态请传 files（文件内容数组），本地形态请传 dir（站点目录路径）。不允许空参数 —— 空 files 也请在"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "files: [] 的行为",
+      "ok": null,
+      "detail": "报错：错误：缺少输入：服务器形态请传 files（文件内容数组），本地形态请传 dir（站点目录路径）。不允许空参数 —— 空"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "空参数 optimize → 明确报错、不写盘",
+      "ok": true,
+      "detail": "错误：缺少输入：服务器形态请传 files（文件内容数组），本地形态请传 dir（站点目录路径）。不允许空参数 —— 空 files 也请在调用方拦住，不要让它"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "同时给 dir 与 files 时以 files 为准（服务器上没有那个目录）",
+      "ok": true,
+      "detail": "billable=6"
+    },
+    {
+      "group": "⑧ 输入健壮性：路径、重复、缺内容、空参数",
+      "name": "未知链名（schema 限定，应当被拒）",
+      "ok": null,
+      "detail": "被拒：MCP error -32602: Input validation error: Invalid arguments "
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "单次调用耗时",
+      "ok": null,
+      "detail": "第 1 次 480ms（含冷启动）· 第 2 次 570ms"
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "桥接自报的服务端耗时",
+      "ok": null,
+      "detail": "241ms（x-tape-elapsed-ms）· 客户端实测 371ms"
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "单发 optimize 稳定成功（并发问题只在请求重叠时出现）",
+      "ok": true,
+      "detail": "585ms"
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "并发下至少有一半请求成功（服务没被拖死）",
+      "ok": true,
+      "detail": "6/6 · 总耗时 3203ms · 单个 576/1271/1801/2153/3202/2473ms"
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "并发失败时返回的是明确的后端错误（不是静默丢响应或损坏结果）",
+      "ok": true,
+      "detail": "（全部成功）"
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "6 并发成功率（受共享主机每用户进程数上限影响，不是本工具的并发闸门）",
+      "ok": null,
+      "detail": "6/6 成功"
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "并发之后探活仍 200",
+      "ok": true,
+      "detail": "3802ms"
+    },
+    {
+      "group": "⑨ 性能与并发",
+      "name": "真实站点（852 KB / 20 文件）端到端 optimize",
+      "ok": null,
+      "detail": "9148ms · 产物 19 个"
+    }
+  ]
+}

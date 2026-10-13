@@ -1,0 +1,51 @@
+/* ==========================================================================
+   docker compose —— 服务器上一条命令起服务
+   --------------------------------------------------------------------------
+   DEWEB_SHRINK_API_KEY 用 `${VAR:?}` 强制要求：没设就直接拒绝启动。
+   公开服务不设 key 等于把 CPU 送人，宁可在这一步就拦住。
+
+   用法：
+     export DEWEB_SHRINK_API_KEY=$(openssl rand -hex 24)
+     docker compose up -d
+     docker compose logs -f
+   ========================================================================== */
+
+services:
+  deweb-shrink:
+    build: .
+    image: deweb-shrink:0.3.0
+    container_name: deweb-shrink
+    restart: unless-stopped
+    ports:
+      # 默认只绑本机回环：对外访问走 SSH 隧道或 nginx 反代，不直接把端口暴露到公网。
+      # 要直接暴露，把 DEWEB_SHRINK_BIND 设成 0.0.0.0:8787，
+      # 并确认云安全组 / 防火墙已经收紧到只允许可信来源。
+      - "${DEWEB_SHRINK_BIND:-127.0.0.1:8787}:8787"
+    environment:
+      DEWEB_SHRINK_API_KEY: "${DEWEB_SHRINK_API_KEY:?必须设置 DEWEB_SHRINK_API_KEY，否则任何人都能调用这个服务}"
+      DEWEB_SHRINK_CONCURRENCY: "${DEWEB_SHRINK_CONCURRENCY:-4}"
+      DEWEB_SHRINK_TIMEOUT_MS: "${DEWEB_SHRINK_TIMEOUT_MS:-120000}"
+      DEWEB_SHRINK_MAX_BYTES: "${DEWEB_SHRINK_MAX_BYTES:-8388608}"
+      DEWEB_SHRINK_MAX_FILES: "${DEWEB_SHRINK_MAX_FILES:-2000}"
+      DEWEB_SHRINK_CORS: "${DEWEB_SHRINK_CORS:-*}"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:8787/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          # sharp / esbuild 吃 CPU 和内存；给个上限，免得一个恶意请求把整台机器拖垮
+          cpus: "${DEWEB_SHRINK_CPUS:-2}"
+          memory: "${DEWEB_SHRINK_MEMORY:-1g}"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

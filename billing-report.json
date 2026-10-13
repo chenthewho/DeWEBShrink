@@ -1,0 +1,709 @@
+{
+  "network": "bsc",
+  "symbol": "BNB",
+  "gasPriceGwei": 0.05,
+  "priceUsd": 750,
+  "sites": [
+    {
+      "name": "01-basic",
+      "title": "基础小站 —— 看块开销：小文件也各占一整块",
+      "error": null,
+      "before": {
+        "totals": {
+          "allFiles": 4,
+          "billableFiles": 4,
+          "skippedFiles": 0,
+          "bytes": 1594,
+          "chunks": 4,
+          "gas": 1454590
+        },
+        "gas": 1454590,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 1454590,
+          "wei": "72729500000000",
+          "native": 0.0000727295,
+          "usd": 0.054547124999999995
+        },
+        "skipped": []
+      },
+      "after": {
+        "files": 4,
+        "bytes": 785,
+        "chunks": 4,
+        "gas": 1264475,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 1264475,
+          "wei": "63223750000000",
+          "native": 0.00006322375,
+          "usd": 0.047417812499999996
+        }
+      },
+      "verification": {
+        "ok": true,
+        "checks": [
+          {
+            "name": "入口 index.html",
+            "status": "pass",
+            "detail": "存在；TapeCode 发布页要求项目里有 index.html"
+          },
+          {
+            "name": "协议合法性",
+            "status": "pass",
+            "detail": "没有任何文件会被协议静默跳过"
+          },
+          {
+            "name": "引用完整性",
+            "status": "pass",
+            "detail": "产物里 4 个文本文件的引用全部能落到真实文件上"
+          },
+          {
+            "name": "JS 语法",
+            "status": "pass",
+            "detail": "产物里所有 JS 都能解析"
+          },
+          {
+            "name": "HTML 结构",
+            "status": "pass",
+            "detail": "标签直方图与内联块数量与原文一致"
+          },
+          {
+            "name": "跨文件全局",
+            "status": "pass",
+            "detail": "没有把被其他文件引用的全局改名或删除"
+          },
+          {
+            "name": "体积单调",
+            "status": "pass",
+            "detail": "产物里没有比原文更大的文件"
+          },
+          {
+            "name": "Content-Type",
+            "status": "pass",
+            "detail": "扩展名协议都认识，manifest 声明与真实文件一致"
+          },
+          {
+            "name": "图片尺寸",
+            "status": "pass",
+            "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+          },
+          {
+            "name": "单文件上限",
+            "status": "pass",
+            "detail": "没有文件超过协议 8 MiB 的上限"
+          }
+        ],
+        "failed": 0,
+        "warned": 0
+      }
+    },
+    {
+      "name": "02-images",
+      "title": "图片密集 —— 同格式重编码 + PSNR 质量门限",
+      "error": null,
+      "before": {
+        "totals": {
+          "allFiles": 5,
+          "billableFiles": 5,
+          "skippedFiles": 0,
+          "bytes": 988388,
+          "chunks": 45,
+          "gas": 244421180
+        },
+        "gas": 244421180,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 244421180,
+          "wei": "12221059000000000",
+          "native": 0.012221059,
+          "usd": 9.16579425
+        },
+        "skipped": []
+      },
+      "after": {
+        "files": 5,
+        "bytes": 185067,
+        "chunks": 11,
+        "gas": 46460745,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 46460745,
+          "wei": "2323037250000000",
+          "native": 0.00232303725,
+          "usd": 1.7422779375
+        }
+      },
+      "verification": {
+        "ok": true,
+        "checks": [
+          {
+            "name": "入口 index.html",
+            "status": "pass",
+            "detail": "存在；TapeCode 发布页要求项目里有 index.html"
+          },
+          {
+            "name": "协议合法性",
+            "status": "pass",
+            "detail": "没有任何文件会被协议静默跳过"
+          },
+          {
+            "name": "引用完整性",
+            "status": "pass",
+            "detail": "产物里 1 个文本文件的引用全部能落到真实文件上"
+          },
+          {
+            "name": "JS 语法",
+            "status": "pass",
+            "detail": "产物里所有 JS 都能解析"
+          },
+          {
+            "name": "HTML 结构",
+            "status": "pass",
+            "detail": "标签直方图与内联块数量与原文一致"
+          },
+          {
+            "name": "跨文件全局",
+            "status": "pass",
+            "detail": "没有把被其他文件引用的全局改名或删除"
+          },
+          {
+            "name": "体积单调",
+            "status": "pass",
+            "detail": "产物里没有比原文更大的文件"
+          },
+          {
+            "name": "Content-Type",
+            "status": "pass",
+            "detail": "扩展名协议都认识，manifest 声明与真实文件一致"
+          },
+          {
+            "name": "图片尺寸",
+            "status": "pass",
+            "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+          },
+          {
+            "name": "单文件上限",
+            "status": "pass",
+            "detail": "没有文件超过协议 8 MiB 的上限"
+          }
+        ],
+        "failed": 0,
+        "warned": 0
+      }
+    },
+    {
+      "name": "03-fonts",
+      "title": "字体密集 —— 本工具不做子集化，账单会如实反映",
+      "error": null,
+      "before": {
+        "totals": {
+          "allFiles": 10,
+          "billableFiles": 10,
+          "skippedFiles": 0,
+          "bytes": 181969,
+          "chunks": 15,
+          "gas": 46812715
+        },
+        "gas": 46812715,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 46812715,
+          "wei": "2340635750000000",
+          "native": 0.00234063575,
+          "usd": 1.7554768124999998
+        },
+        "skipped": []
+      },
+      "after": {
+        "files": 10,
+        "bytes": 181773,
+        "chunks": 15,
+        "gas": 46766655,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 46766655,
+          "wei": "2338332750000000",
+          "native": 0.00233833275,
+          "usd": 1.7537495625
+        }
+      },
+      "verification": {
+        "ok": true,
+        "checks": [
+          {
+            "name": "入口 index.html",
+            "status": "pass",
+            "detail": "存在；TapeCode 发布页要求项目里有 index.html"
+          },
+          {
+            "name": "协议合法性",
+            "status": "pass",
+            "detail": "没有任何文件会被协议静默跳过"
+          },
+          {
+            "name": "引用完整性",
+            "status": "pass",
+            "detail": "产物里 2 个文本文件的引用全部能落到真实文件上"
+          },
+          {
+            "name": "JS 语法",
+            "status": "pass",
+            "detail": "产物里所有 JS 都能解析"
+          },
+          {
+            "name": "HTML 结构",
+            "status": "pass",
+            "detail": "标签直方图与内联块数量与原文一致"
+          },
+          {
+            "name": "跨文件全局",
+            "status": "pass",
+            "detail": "没有把被其他文件引用的全局改名或删除"
+          },
+          {
+            "name": "体积单调",
+            "status": "pass",
+            "detail": "产物里没有比原文更大的文件"
+          },
+          {
+            "name": "Content-Type",
+            "status": "pass",
+            "detail": "扩展名协议都认识，manifest 声明与真实文件一致"
+          },
+          {
+            "name": "图片尺寸",
+            "status": "pass",
+            "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+          },
+          {
+            "name": "单文件上限",
+            "status": "pass",
+            "detail": "没有文件超过协议 8 MiB 的上限"
+          }
+        ],
+        "failed": 0,
+        "warned": 0
+      }
+    },
+    {
+      "name": "04-js",
+      "title": "JS 密集 —— IIFE 包裹，能吃满压缩率",
+      "error": null,
+      "before": {
+        "totals": {
+          "allFiles": 5,
+          "billableFiles": 5,
+          "skippedFiles": 0,
+          "bytes": 80758,
+          "chunks": 6,
+          "gas": 20598130
+        },
+        "gas": 20598130,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 20598130,
+          "wei": "1029906500000000",
+          "native": 0.0010299065,
+          "usd": 0.772429875
+        },
+        "skipped": []
+      },
+      "after": {
+        "files": 5,
+        "bytes": 39327,
+        "chunks": 5,
+        "gas": 10591845,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 10591845,
+          "wei": "529592250000000",
+          "native": 0.00052959225,
+          "usd": 0.3971941875
+        }
+      },
+      "verification": {
+        "ok": true,
+        "checks": [
+          {
+            "name": "入口 index.html",
+            "status": "pass",
+            "detail": "存在；TapeCode 发布页要求项目里有 index.html"
+          },
+          {
+            "name": "协议合法性",
+            "status": "pass",
+            "detail": "没有任何文件会被协议静默跳过"
+          },
+          {
+            "name": "引用完整性",
+            "status": "pass",
+            "detail": "产物里 5 个文本文件的引用全部能落到真实文件上"
+          },
+          {
+            "name": "JS 语法",
+            "status": "pass",
+            "detail": "产物里所有 JS 都能解析"
+          },
+          {
+            "name": "HTML 结构",
+            "status": "pass",
+            "detail": "标签直方图与内联块数量与原文一致"
+          },
+          {
+            "name": "跨文件全局",
+            "status": "pass",
+            "detail": "没有把被其他文件引用的全局改名或删除"
+          },
+          {
+            "name": "体积单调",
+            "status": "pass",
+            "detail": "产物里没有比原文更大的文件"
+          },
+          {
+            "name": "Content-Type",
+            "status": "pass",
+            "detail": "扩展名协议都认识，manifest 声明与真实文件一致"
+          },
+          {
+            "name": "图片尺寸",
+            "status": "pass",
+            "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+          },
+          {
+            "name": "单文件上限",
+            "status": "pass",
+            "detail": "没有文件超过协议 8 MiB 的上限"
+          }
+        ],
+        "failed": 0,
+        "warned": 0
+      }
+    },
+    {
+      "name": "05-messy",
+      "title": "脏站 —— 协议跳过的 / 白收费的 / Content-Type 陷阱",
+      "error": null,
+      "before": {
+        "totals": {
+          "allFiles": 10,
+          "billableFiles": 6,
+          "skippedFiles": 4,
+          "bytes": 340034,
+          "chunks": 19,
+          "gas": 85037990
+        },
+        "gas": 85037990,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 85037990,
+          "wei": "4251899500000000",
+          "native": 0.0042518995,
+          "usd": 3.188924625
+        },
+        "skipped": [
+          {
+            "path": ".DS_Store",
+            "bytes": 40,
+            "reason": "hidden"
+          },
+          {
+            "path": ".shots/design-v1.png",
+            "bytes": 307200,
+            "reason": "hidden"
+          },
+          {
+            "path": "bad\u0001name.txt",
+            "bytes": 43,
+            "reason": "badpath"
+          },
+          {
+            "path": "huge-video.mp4",
+            "bytes": 9437184,
+            "reason": "toobig"
+          }
+        ]
+      },
+      "after": {
+        "files": 4,
+        "bytes": 69078,
+        "chunks": 6,
+        "gas": 17853330,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 17853330,
+          "wei": "892666500000000",
+          "native": 0.0008926665,
+          "usd": 0.6694998750000001
+        }
+      },
+      "verification": {
+        "ok": true,
+        "checks": [
+          {
+            "name": "入口 index.html",
+            "status": "pass",
+            "detail": "存在；TapeCode 发布页要求项目里有 index.html"
+          },
+          {
+            "name": "协议合法性",
+            "status": "pass",
+            "detail": "没有任何文件会被协议静默跳过"
+          },
+          {
+            "name": "引用完整性",
+            "status": "pass",
+            "detail": "产物里 2 个文本文件的引用全部能落到真实文件上"
+          },
+          {
+            "name": "JS 语法",
+            "status": "pass",
+            "detail": "产物里所有 JS 都能解析"
+          },
+          {
+            "name": "HTML 结构",
+            "status": "pass",
+            "detail": "标签直方图与内联块数量与原文一致"
+          },
+          {
+            "name": "跨文件全局",
+            "status": "pass",
+            "detail": "没有把被其他文件引用的全局改名或删除"
+          },
+          {
+            "name": "体积单调",
+            "status": "pass",
+            "detail": "产物里没有比原文更大的文件"
+          },
+          {
+            "name": "Content-Type",
+            "status": "warn",
+            "detail": "协议不认识这些扩展名，会以 application/octet-stream 提供：manifest.webmanifest；manifest.webmanifest 会被以 application/octet-stream 返回：协议的扩展名表里没有 webmanifest。W3C 规范的媒体类型注册要求 manifest 返回 Content-Type: application/manifest+json，浏览器一般也接受 .json（application/json）；octet-stream 两者都不是，manifest 大概率被忽略、PWA 装不上。建议改名为 manifest.json，并同步 <link rel=\"manifest\"> 与 sw.js 里的引用（sw.js 里除字符串外还有一条 /.(?:html|js|webmanifest)$/ 正则要一起改）"
+          },
+          {
+            "name": "图片尺寸",
+            "status": "pass",
+            "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+          },
+          {
+            "name": "单文件上限",
+            "status": "pass",
+            "detail": "没有文件超过协议 8 MiB 的上限"
+          }
+        ],
+        "failed": 0,
+        "warned": 1
+      }
+    },
+    {
+      "name": "06-dup",
+      "title": "重复内容 —— 每个路径单独计费",
+      "error": null,
+      "before": {
+        "totals": {
+          "allFiles": 5,
+          "billableFiles": 5,
+          "skippedFiles": 0,
+          "bytes": 2055,
+          "chunks": 5,
+          "gas": 1832925
+        },
+        "gas": 1832925,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 1832925,
+          "wei": "91646250000000",
+          "native": 0.00009164625,
+          "usd": 0.0687346875
+        },
+        "skipped": []
+      },
+      "after": {
+        "files": 4,
+        "bytes": 650,
+        "chunks": 4,
+        "gas": 1232750,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 1232750,
+          "wei": "61637500000000",
+          "native": 0.0000616375,
+          "usd": 0.046228125
+        }
+      },
+      "verification": {
+        "ok": true,
+        "checks": [
+          {
+            "name": "入口 index.html",
+            "status": "pass",
+            "detail": "存在；TapeCode 发布页要求项目里有 index.html"
+          },
+          {
+            "name": "协议合法性",
+            "status": "pass",
+            "detail": "没有任何文件会被协议静默跳过"
+          },
+          {
+            "name": "引用完整性",
+            "status": "pass",
+            "detail": "产物里 4 个文本文件的引用全部能落到真实文件上"
+          },
+          {
+            "name": "JS 语法",
+            "status": "pass",
+            "detail": "产物里所有 JS 都能解析"
+          },
+          {
+            "name": "HTML 结构",
+            "status": "pass",
+            "detail": "标签直方图与内联块数量与原文一致"
+          },
+          {
+            "name": "跨文件全局",
+            "status": "pass",
+            "detail": "没有把被其他文件引用的全局改名或删除"
+          },
+          {
+            "name": "体积单调",
+            "status": "pass",
+            "detail": "产物里没有比原文更大的文件"
+          },
+          {
+            "name": "Content-Type",
+            "status": "pass",
+            "detail": "扩展名协议都认识，manifest 声明与真实文件一致"
+          },
+          {
+            "name": "图片尺寸",
+            "status": "pass",
+            "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+          },
+          {
+            "name": "单文件上限",
+            "status": "pass",
+            "detail": "没有文件超过协议 8 MiB 的上限"
+          }
+        ],
+        "failed": 0,
+        "warned": 0
+      }
+    },
+    {
+      "name": "07-real-site",
+      "title": "真实站点 —— 完整 super-lock，就是已上链那个",
+      "error": null,
+      "before": {
+        "totals": {
+          "allFiles": 21,
+          "billableFiles": 21,
+          "skippedFiles": 0,
+          "bytes": 831130,
+          "chunks": 48,
+          "gas": 208275550
+        },
+        "gas": 208275550,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 208275550,
+          "wei": "10413777500000000",
+          "native": 0.0104137775,
+          "usd": 7.8103331250000005
+        },
+        "skipped": []
+      },
+      "after": {
+        "files": 19,
+        "bytes": 398127,
+        "chunks": 28,
+        "gas": 101119845,
+        "cost": {
+          "gasPriceGwei": 0.05,
+          "gas": 101119845,
+          "wei": "5055992250000000",
+          "native": 0.00505599225,
+          "usd": 3.7919941875000003
+        }
+      },
+      "verification": {
+        "ok": true,
+        "checks": [
+          {
+            "name": "入口 index.html",
+            "status": "pass",
+            "detail": "存在；TapeCode 发布页要求项目里有 index.html"
+          },
+          {
+            "name": "协议合法性",
+            "status": "pass",
+            "detail": "没有任何文件会被协议静默跳过"
+          },
+          {
+            "name": "引用完整性",
+            "status": "pass",
+            "detail": "产物里 8 个文本文件的引用全部能落到真实文件上"
+          },
+          {
+            "name": "JS 语法",
+            "status": "pass",
+            "detail": "产物里所有 JS 都能解析"
+          },
+          {
+            "name": "HTML 结构",
+            "status": "pass",
+            "detail": "标签直方图与内联块数量与原文一致"
+          },
+          {
+            "name": "跨文件全局",
+            "status": "pass",
+            "detail": "没有把被其他文件引用的全局改名或删除"
+          },
+          {
+            "name": "体积单调",
+            "status": "pass",
+            "detail": "产物里没有比原文更大的文件"
+          },
+          {
+            "name": "Content-Type",
+            "status": "warn",
+            "detail": "协议不认识这些扩展名，会以 application/octet-stream 提供：manifest.webmanifest；manifest.webmanifest 会被以 application/octet-stream 返回：协议的扩展名表里没有 webmanifest。W3C 规范的媒体类型注册要求 manifest 返回 Content-Type: application/manifest+json，浏览器一般也接受 .json（application/json）；octet-stream 两者都不是，manifest 大概率被忽略、PWA 装不上。建议改名为 manifest.json，并同步 <link rel=\"manifest\"> 与 sw.js 里的引用（sw.js 里除字符串外还有一条 /.(?:html|js|webmanifest)$/ 正则要一起改）"
+          },
+          {
+            "name": "图片尺寸",
+            "status": "pass",
+            "detail": "所有图片的像素尺寸保持不变（只换了编码）"
+          },
+          {
+            "name": "单文件上限",
+            "status": "pass",
+            "detail": "没有文件超过协议 8 MiB 的上限"
+          }
+        ],
+        "failed": 0,
+        "warned": 1
+      }
+    }
+  ],
+  "totals": {
+    "before": {
+      "files": 56,
+      "bytes": 2425928,
+      "chunks": 142,
+      "gas": 608433080,
+      "cost": {
+        "native": 0.030421654,
+        "usd": 22.8162405
+      }
+    },
+    "after": {
+      "files": 51,
+      "bytes": 874807,
+      "chunks": 73,
+      "gas": 225289645,
+      "cost": {
+        "native": 0.01126448225,
+        "usd": 8.4483616875
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+[M Nav] DeWEBShrink
+[M Nav] REC
+[M Nav] 00:30
+[M Nav] 中文
+[M Nav] EN
+[M Hero] 链上按字节永久计费
+[M Hero] TRK-00
+[M Hero] 上链之前，先给站点做一次体检。
+[M Hero] 链上按字节永久计费：多传 1 MB，就是多花一份永久的钱。DeWEBShrink 把你的站点扫一遍，告诉你哪些字节在烧钱、能压掉多少。
+[M Hero] 拖进来，立刻体检
+[M Hero] 先看一次真实案例
+[M Hero] 计费公式与路径规则照抄发布页前端常量 —— 网页里算出的数字，就是发布时账单上的数字。
+[M Hero] TAPE-001 / SIDE A
+[M Hero] SITE AUDIT · LOCAL · 00:30
+[M Hero] tapecode.receipt
+[M Hero] ● REC
+[M Hero] 优化前 · 801,960 B
+[M Hero] $7.51
+[M Hero] 省下
+[M Hero] 这一版少花 48.2%
+[M Hero] $3.62
+[M Hero] 优化后 · 408,755 B
+[M Hero] $3.88
+[M Hero] BSC · 0.05 gwei · BNB $747.31
+[M Hero] 安全档
+[M Hero] −49%
+[M Hero] 一个真实站点省下的体积
+[M Hero] 801,960 → 408,755 B
+[M Hero] $3.62
+[M Hero] 那一版省下的钱
+[M Hero] 0.05 gwei · BNB $747
+[M Hero] 自动校验，对拍原文
+[M Hero] 含跨文件全局改名
+[M Hero] 10
+[M Hero] 项
+[M Hero] 源目录的改动量
+[M Hero] 产物另存，不原地改
+[M Hero] 0
+[M Hero] 字节
+[M Checkup] 现在就来
+[M Checkup] TRK-01
+[M Checkup] 把站点拖进来，三十秒后你知道要花多少钱。
+[M Checkup] 全部在你的浏览器里跑（WebAssembly），零字节发到服务器。
+[M Checkup] // CHECKUP CONSOLE
+[M Checkup] RUNTIME READY
+[M Checkup] 手机上没有「文件夹」这个概念
+[M Checkup] 桌面浏览器可完整体检。手机端 .zip 上传在做了；也可只体检单个文件。
+[M Checkup] 选择单个文件
+[M Checkup] 支持整个目录（含子目录）。单文件上限 8 MiB —— 超限文件协议会静默跳过，我们会替你标出来。
+[M Checkup] 计算条件 · 0.05 gwei · BNB $750 · BSC · 安全档
+[M Checkup] 开始体检 + 压缩
+[M Running] 正在体检
+[M Running] 取消
+[M Running] 运行时
+[M Running] 扫描
+[M Running] 压缩
+[M Running] 校验
+[M Running] 完成
+[M Running] 压缩中… 8 / 20 · icons/icon-512.png
+[M Running] 可以取消，源目录不会有任何变化。
+[M Bill] 账单
+[M Bill] BSC · 0.05 gwei · BNB $747.31 · 安全档
+[M Bill] 全部通过
+[M Bill] 这一版少花 48.2%
+[M Bill] $3.62
+[M Bill] 801,960 B → 408,755 B
+[M Bill] 384 KB
+[M Bill] 少发 17 笔交易 · 46 块 → 29 块
+[M Bill] 17
+[M Bill] 
+[M Bill] 字节数
+[M Bill] 块
+[M Bill] USD
+[M Bill] 优化前
+[M Bill] 801,960
+[M Bill] 46
+[M Bill] $7.51
+[M Bill] 优化后
+[M Bill] 408,755
+[M Bill] 29
+[M Bill] $3.88
+[M Bill] 省下
+[M Bill] 384 KB
+[M Bill] 17
+[M Bill] $3.62
+[M Bill] 窄屏隐藏 gas 与 BNB 两列；完整数值在「复制 JSON」里。
+[M Bill] 下载 .tape.zip
+[M Bill] 复制 JSON
+[M Bill] 展开完整报告
+[M Bill] 只是改了一版？算增量账单 →
+[M Bill] 校验 · 全部通过
+[M Bill] 10 / 10
+[M Bill] 入口 index.html
+[M Bill] 存在
+[M Bill] 引用完整性
+[M Bill] 所有引用都落到位
+[M Bill] 跨文件全局
+[M Bill] 没有改名的全局
+[M Footer] DeWEBShrink
+[M Footer] 给链上站点做上链前体检与压缩。
+[M Footer] 产品
+[M Footer] 在线体检
+[M Footer] 功能
+[M Footer] 案例
+[M Footer] 接入
+[M Footer] CLI
+[M Footer] MCP
+[M Footer] 接入文档
+[M Footer] 项目
+[M Footer] 版本 v0.3.0
+[M Footer] 变更记录
+[M Footer] 问题反馈
+[M Footer] 费用为按当前 gasPrice 与币价估算的结果，实际以发布页为准。本工具不发送交易、不保存你的文件。
+[M Footer] © 2026 DeWEBShrink
+[M Footer] 中文
+[M Footer] EN

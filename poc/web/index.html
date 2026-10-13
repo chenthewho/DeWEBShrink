@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeWEBShrink · 纯前端压缩 PoC</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <h1>DeWEBShrink <small>纯前端 PoC</small></h1>
+    <p class="sub">
+      站点文件**不出本机**：扫描、压缩、校验、算账全部在这个页面里跑（WebAssembly）。
+      算法与 CLI / MCP 是同一份 <code>src/</code> 代码，所以账单数字必然一致。
+    </p>
+  </header>
+
+  <main>
+    <section class="card" id="pick">
+      <div class="drop" id="drop">
+        <p><strong>把站点目录拖到这里</strong>，或者</p>
+        <label class="btn">
+          <input type="file" id="dir" webkitdirectory directory multiple hidden>
+          选择一个目录
+        </label>
+        <p class="hint" id="picked">未选择</p>
+      </div>
+
+      <div class="row">
+        <button class="btn primary" id="sample">① 一键试用示例站点（super-lock · 21 文件 / 812 KB）</button>
+        <span class="hint">不用准备文件，点一下就能看到账单</span>
+      </div>
+
+      <div class="row">
+        <label>gasPrice (gwei) <input id="gp" type="number" step="0.01" value="0.05"></label>
+        <label>BNB 价格 (USD) <input id="usd" type="number" step="1" value="750"></label>
+        <label class="chk"><input id="doImages" type="checkbox" checked> 图片无损压缩 (PNG/oxipng)</label>
+        <button class="btn primary" id="run" disabled>② 开始体检 + 压缩</button>
+      </div>
+      <p class="hint">默认只做安全优化：JS/CSS/HTML 压缩、PNG 无损重压、删掉没引用的文件；不动源文件。</p>
+    </section>
+
+    <section class="card hidden" id="progressCard">
+      <h2>进度</h2>
+      <div class="bar"><div id="bar"></div></div>
+      <p class="hint" id="progressText">准备中…</p>
+    </section>
+
+    <section class="card hidden" id="resultCard">
+      <h2>账单</h2>
+      <div id="summary"></div>
+      <div class="row">
+        <button class="btn" id="download" disabled>下载 .tape.zip</button>
+        <button class="btn" id="copy">复制 JSON</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="checksCard">
+      <h2>校验</h2>
+      <div id="checks"></div>
+    </section>
+
+    <section class="card hidden" id="detailsCard">
+      <h2>完整报告（与 CLI 输出同款）</h2>
+      <details>
+        <summary>展开</summary>
+        <pre id="report"></pre>
+      </details>
+      <details>
+        <summary>原始 JSON</summary>
+        <pre id="json"></pre>
+      </details>
+    </section>
+
+    <section class="card" id="about">
+      <h2>这份 PoC 保证了什么</h2>
+      <ul class="about">
+        <li>算法就是 <code>src/</code> 里那一份：扫描、引用图、删除规则、压缩、10 项校验全部复用，没有重写。</li>
+        <li>对拍证据：同一份示例站点（831,130 B），浏览器版与 CLI 版 <b>gas 完全一致</b>（208,275,550），
+            16 个文本产物 <b>sha256 逐字节相同</b>。</li>
+        <li>图片是唯一的差别：CLI 走 libimagequant 调色板量化（→ 398,127 B），
+            浏览器走 oxipng 无损（→ 约 639 KB）。想更小就得把量化版 WASM 也搬进来。</li>
+        <li>没有服务器、没有 API key、文件不出本机，断网也能跑。</li>
+      </ul>
+    </section>
+  </main>
+
+    <!-- 注意：必须引用**打包产物** dist/main.js。曾经写成 ./main.js（源码），
+       浏览器解析不了里面的裸模块（fflate 等）→ 整个模块报错、所有按钮都没绑上，
+       而 test.html 走的是另一条路，所以自动化测试没暴露这个错。 -->
+  <script type="module" src="./dist/main.js"></script>
+</body>
+</html>

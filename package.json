@@ -1,0 +1,69 @@
+{
+  "name": "deweb-shrink",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "DeWEBShrink — 去中心化网站（TapeOut / TapeKit 上的链上站点）的体检与压缩工具。MCP server that audits and shrinks a decentralised website before publishing it on-chain, and prices every byte with the protocol's real gas model.",
+  "keywords": [
+    "mcp",
+    "deweb",
+    "tapeout",
+    "tapekit",
+    "on-chain",
+    "decentralized-web",
+    "minify",
+    "gas"
+  ],
+  "bin": {
+    "deweb-shrink": "./src/cli.js",
+    "deweb-shrink-mcp": "./src/index.js",
+    "deweb-shrink-http": "./src/http.js"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./http": "./src/http.js",
+    "./source": "./src/source.js",
+    "./limits": "./src/limits.js",
+    "./diff": "./src/diff.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "start:http": "node src/http.js",
+    "site:build": "node web/tools/pen-to-site.mjs && node web/tools/build-tool.mjs",
+    "site:serve": "node web/serve.mjs",
+    "site:verify": "node web/tools/verify-site.mjs",
+    "site:shots": "node web/tools/shots.mjs",
+    "scan": "node src/cli.js scan",
+    "optimize": "node src/cli.js optimize",
+    "diff": "node src/cli.js diff",
+    "fixtures": "node scripts/make-fixtures.mjs",
+    "billing": "node scripts/billing-report.mjs",
+    "iteration": "node scripts/iteration-cost.mjs",
+    "ab": "node scripts/raw-vs-compressed.mjs",
+    "test:remote": "node scripts/test-remote.mjs",
+    "test:scenarios": "node scripts/scenarios-remote.mjs",
+    "test": "node --test test/*.test.js",
+    "poc:build": "node poc/build.mjs",
+    "poc:build:node": "node poc/build.mjs --target=node",
+    "poc:parity": "node poc/build.mjs --target=node && node poc/parity.mjs",
+    "poc:test": "node poc/build.mjs && node poc/test-bundle.mjs",
+    "poc:test:browser": "node poc/build.mjs && node poc/test-headless.mjs",
+    "poc:serve": "node poc/serve.mjs",
+    "poc:smoke": "node poc/smoke-demo.mjs",
+    "poc:verify": "node poc/build.mjs --target=node && node poc/parity.mjs && node poc/build.mjs && node poc/test-bundle.mjs && node poc/test-headless.mjs && node poc/smoke-demo.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@jsquash/oxipng": "^2.3.0",
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "acorn": "^8.19.0",
+    "buffer": "^6.0.3",
+    "esbuild": "^0.25.0",
+    "esbuild-wasm": "^0.25.12",
+    "fflate": "^0.8.3",
+    "html-minifier-terser": "^7.2.0",
+    "sharp": "^0.34.0"
+  }
+}

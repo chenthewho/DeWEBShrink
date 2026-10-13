@@ -1,0 +1,27 @@
+{
+  "_note": "设计稿里 FAQ 只展开了第 1 条答案，其余 10 条答案取自 docs/website-spec.md §S11，按设计稿同款排版补进生成结果。序号与设计稿的问题一一对应。",
+  "zh": {
+    "02": "不会。站点原样按路径写进链上容器合约，没有 gzip / brotli / WebP 转换。所以「少传字节」是唯一的省钱手段。",
+    "03": "默认安全档只改编码、不改路径、不改引用；压完跑 10 项校验，fail 会明确告诉你别发布；源目录全程只读，产物另存。",
+    "04": "协议按「路径 + sha256」判断是否跳过。改了压缩参数，几乎每个文件的字节都变，会被当成全新内容整站重传。",
+    "05": "这是协议行为：超限文件被静默跳过。我们会替你标出来，发布页不会。",
+    "06": "路径段以 . 开头会被判为隐藏文件、静默跳过。所以在该协议下域名验证、ACME 都用不了。",
+    "07": "现在不能自动压。字体子集化需要先有「码位覆盖」校验，否则会渲染成豆腐块；工具只报数（实测约还能省 88 KB）。",
+    "08": "不会，也不签名。工具只出账单、产物和校验结论，发布仍走 TapeCode 界面。",
+    "09": "算法是同一份代码，账单数字必然一致；差别在图片档位 —— 网页版走无损重压，服务器版走调色板量化，后者收益更大。",
+    "10": "BSC / X Layer / Base，计费公式相同，只有 gasPrice 地板价与币种不同。",
+    "11": "网页版不需要注册、不需要 key；服务端 MCP 形态需要 API key，并且有体积 / 并发 / 超时限制。"
+  },
+  "en": {
+    "02": "No. Your site is written into the on-chain container contract path for path — no gzip, brotli or WebP conversion. Shipping fewer bytes is the only way to pay less.",
+    "03": "The default safe preset only re-encodes: no path changes, no reference rewrites. Ten checks run afterwards, and a failure tells you plainly not to publish. Your source stays read-only; the output is written elsewhere.",
+    "04": "The protocol skips files by path + sha256. Changing the shrink parameters changes the bytes of almost every file, which reads as brand-new content and re-uploads the whole site.",
+    "05": "That's the protocol: files over the limit are silently skipped. We flag them for you; the publishing page won't.",
+    "06": "Any path segment starting with a dot is treated as a hidden file and silently skipped — so domain verification and ACME can't be done under this protocol.",
+    "07": "Not automatically, no. Font subsetting needs a code-point coverage check first, otherwise pages render as tofu boxes. The tool only reports the number (about 88 KB still on the table in our test).",
+    "08": "No, and it doesn't sign anything either. It produces a bill, an output build and a verification verdict. Publishing still happens in the TapeCode UI.",
+    "09": "Same algorithm, so the bill is identical by construction. The difference is image tiers: the web build re-encodes losslessly, the server build uses palette quantization, which saves more.",
+    "10": "BSC, X Layer and Base. The gas formula is the same; only the floor price and the token differ.",
+    "11": "The web build needs neither an account nor a key. The server MCP endpoint needs an API key and has size, concurrency and timeout limits."
+  }
+}

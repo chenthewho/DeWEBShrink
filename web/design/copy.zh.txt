@@ -1,0 +1,464 @@
+[S1 Nav] DeWEBShrink
+[S1 Nav] REC
+[S1 Nav] 在线体检
+[S1 Nav] 为什么贵
+[S1 Nav] 功能
+[S1 Nav] 工作原理
+[S1 Nav] 真实案例
+[S1 Nav] 怎么用
+[S1 Nav] FAQ
+[S1 Nav] 00:30
+[S1 Nav] 中文
+[S1 Nav] EN
+[S1 Nav] 查看文档
+[S1 Nav] 开始体检
+[S2 Hero] 链上按字节永久计费
+[S2 Hero] TRK-00
+[S2 Hero] 上链之前，先给站点做一次体检
+[S2 Hero] 多传 1 MB，就是多花一份永久的钱。扫一遍站点，告诉你哪些字节在烧钱、能压掉多少。
+[S2 Hero] 拖进来，立刻体检
+[S2 Hero] 先看一次真实案例
+[S2 Hero] TAPE-001 / SIDE A
+[S2 Hero] SITE AUDIT · RUNS LOCALLY · 00:30
+[S2 Hero] CNT 0030
+[S2 Hero] · NR
+[S2 Hero] 优化前
+[S2 Hero] 801,960 B · 46 块
+[S2 Hero] $7.51
+[S2 Hero] 省下
+[S2 Hero] 这一版少花 48.2%
+[S2 Hero] $3.62
+[S2 Hero] 优化后
+[S2 Hero] 408,755 B · 29 块
+[S2 Hero] $3.88
+[S2 Hero] 46 块 → 29 块　1 块 = 1 笔交易
+[S2 Hero] −49%
+[S2 Hero] 一个真实站点压完省下的体积
+[S2 Hero] 801,960 B → 408,755 B
+[S2 Hero] $3.62
+[S2 Hero] 那一版省下的钱
+[S2 Hero] BSC 地板价 0.05 gwei · BNB $747.31
+[S2 Hero] 自动校验，产物与原文对拍
+[S2 Hero] 含跨文件全局改名检查
+[S2 Hero] 10
+[S2 Hero] 项
+[S2 Hero] 源目录的改动量
+[S2 Hero] 绝不原地改，产物另存
+[S2 Hero] 0
+[S2 Hero] 字节
+[S3 Checkup] 现在就来
+[S3 Checkup] TRK-01
+[S3 Checkup] 把站点拖进来，三十秒后你知道要花多少钱。
+[S3 Checkup] 全部在你的浏览器里跑（WebAssembly），没有一个字节发到服务器。与 CLI / MCP 同一份代码。
+[S3 Checkup] // CHECKUP CONSOLE · v0.3.0
+[S3 Checkup] RUNTIME READY
+[S3 Checkup] 把站点目录拖到这里
+[S3 Checkup] 或者
+[S3 Checkup] 选择文件夹
+[S3 Checkup] 支持整个目录。单文件上限 8 MiB，超限文件协议会静默跳过，我们会替你标出来。
+[S3 Checkup] 首次需下载 12 MB 运行时，之后走浏览器缓存。
+[S3 Checkup] 计算条件
+[S3 Checkup] gasPrice
+[S3 Checkup] BSC 地板价
+[S3 Checkup] 0.05
+[S3 Checkup] gwei
+[S3 Checkup] BNB 价格
+[S3 Checkup] 币价会变，自己改
+[S3 Checkup] 750
+[S3 Checkup] USD
+[S3 Checkup] 链
+[S3 Checkup] BSC
+[S3 Checkup] X Layer
+[S3 Checkup] Base
+[S3 Checkup] 优化档位
+[S3 Checkup] 安全档 · 默认
+[S3 Checkup] 只改编码，不动路径与引用。压缩 JS/CSS/HTML + PNG 无损重压。
+[S3 Checkup] 激进档 · 即将支持
+[S3 Checkup] 额外去属性引号、折叠空白、压内联 CSS/JS。会改结构，默认不开。
+[S3 Checkup] 转换 WebP · 即将支持
+[S3 Checkup] 换成 WebP 并重写引用。收益最大，风险也最大。
+[S3 Checkup] 开始体检 + 压缩
+[S3 Checkup] 账单
+[S3 Checkup] BSC · gasPrice 0.05 gwei · BNB $747.31 · 安全档
+[S3 Checkup] 校验 · 全部通过
+[S3 Checkup] 省下 / SAVED
+[S3 Checkup] $3.62
+[S3 Checkup] 这一版少花 48.2%
+[S3 Checkup] 体积 / BYTES
+[S3 Checkup] 384 KB
+[S3 Checkup] 801,960 B → 408,755 B
+[S3 Checkup] 交易 / TXS
+[S3 Checkup] 17
+[S3 Checkup] 少发 17 笔交易 · 46 块 → 29 块
+[S3 Checkup] 
+[S3 Checkup] 文件数
+[S3 Checkup] 字节数
+[S3 Checkup] 块（=交易）
+[S3 Checkup] gas
+[S3 Checkup] BNB
+[S3 Checkup] USD
+[S3 Checkup] 优化前
+[S3 Checkup] 20
+[S3 Checkup] 801,960
+[S3 Checkup] 46
+[S3 Checkup] 200,880,600
+[S3 Checkup] 0.010044
+[S3 Checkup] $7.51
+[S3 Checkup] 优化后
+[S3 Checkup] 20
+[S3 Checkup] 408,755
+[S3 Checkup] 29
+[S3 Checkup] 103,887,425
+[S3 Checkup] 0.005194
+[S3 Checkup] $3.88
+[S3 Checkup] 省下
+[S3 Checkup] —
+[S3 Checkup] 384 KB（49.0%）
+[S3 Checkup] 17
+[S3 Checkup] 96,993,175
+[S3 Checkup] 0.001850
+[S3 Checkup] $3.62
+[S3 Checkup] 产物 20 个文件 · 没写进产物的 2 个（共 59.8 KB）
+[S3 Checkup] 下载 .tape.zip
+[S3 Checkup] 复制 JSON
+[S3 Checkup] 展开完整报告
+[S3 Checkup] 只是改了一版？算增量账单 →
+[S3 Checkup] 校验 · 全部通过
+[S3 Checkup] 10 项检查，产物与原文对拍
+[S3 Checkup] 10 / 10 PASS
+[S3 Checkup] 入口 index.html
+[S3 Checkup] 存在。发布页要求有 index.html
+[S3 Checkup] 协议合法性
+[S3 Checkup] 没有任何文件会被协议静默跳过
+[S3 Checkup] 引用完整性
+[S3 Checkup] 产物引用都能落到真实文件
+[S3 Checkup] JS 语法
+[S3 Checkup] 产物里所有 JS 都能解析
+[S3 Checkup] HTML 结构
+[S3 Checkup] 标签与内联块数量与原文一致
+[S3 Checkup] 跨文件全局
+[S3 Checkup] 没改被引用的全局名
+[S3 Checkup] 体积单调
+[S3 Checkup] 没有比原文更大的文件
+[S3 Checkup] Content-Type
+[S3 Checkup] 扩展名都认识，manifest 与实际一致
+[S3 Checkup] 图片尺寸
+[S3 Checkup] 图片像素尺寸不变，只换编码
+[S3 Checkup] 单文件上限
+[S3 Checkup] 没有文件超过 8 MiB
+[S3 Checkup] 全部通过 / ALL PASS
+[S3 Checkup] 10 / 10 PASS
+[S3 Checkup] 1 项需要注意 / WARN
+[S3 Checkup] 9 / 10 PASS · 1 WARN
+[S3 Checkup] 有失败项 / FAIL
+[S3 Checkup] ⚠ 引用完整性 fail：压缩后新增了 3 条断链：index.html → icons/logo.png；…
+[S3 Checkup] 失败态示例
+[S3 Checkup] 引用完整性 fail：压缩后新增了 3 条断链：index.html → icons/logo.png；…
+[S3 Checkup] HTML 结构 fail：<div> 直方图与原文不一致（原始 41 / 产物 39）
+[S3 Checkup] 跨文件全局 fail：NixieClock 在 clock.js 里被引用，但产物里找不到这个顶层名字
+[S3 Checkup] 手机上没有「文件夹」这个概念，拖拽也用不了
+[S3 Checkup] 桌面浏览器可完整体检。手机端 .zip 上传在做了；现在也可只体检单个文件。
+[S3 Checkup] 复制链接，在桌面打开
+[S3 Checkup] 明细 / FULL REPORT
+[S3 Checkup] 默认收起
+[S3 Checkup] 改了什么（按体积）
+[S3 Checkup] 6 个文件 · 省 393 KB
+[S3 Checkup] icons/icon-512.png
+[S3 Checkup] 246,638 → 55,979（−77%）
+[S3 Checkup] 调色板量化 q85 · 42.7 dB
+[S3 Checkup] icons/icon-maskable-512.png
+[S3 Checkup] 121,529 → 23,070（−81%）
+[S3 Checkup] 调色板量化 q85
+[S3 Checkup] clock.js
+[S3 Checkup] 36,807 → 19,388（−47%）
+[S3 Checkup] minify + 顶层名守卫
+[S3 Checkup] chain.js
+[S3 Checkup] 20,496 → 6,931（−66%）
+[S3 Checkup] minify
+[S3 Checkup] sw.js
+[S3 Checkup] −47%
+[S3 Checkup] minify
+[S3 Checkup] pwa.js
+[S3 Checkup] −42%
+[S3 Checkup] minify
+[S3 Checkup] 没写进产物
+[S3 Checkup] 2 个 · 59.8 KB
+[S3 Checkup] 保留的约定文件
+[S3 Checkup] 3 个 · robots.txt, favicon.ico, apple-touch-icon.png
+[S3 Checkup] 改了文件名
+[S3 Checkup] 1 个 · 引用已同步重写
+[S3 Checkup] 还能再省
+[S3 Checkup] 1 项 · 约 88 KB ≈ $0.85 · 可选
+[S3 Checkup] 错误态 · 就地内联，不用弹窗
+[S3 Checkup] E01 · 没选任何文件
+[S3 Checkup] 还没选文件。拖入目录，或点「选择文件夹」。
+[S3 Checkup] 下一步：高亮拖拽区
+[S3 Checkup] E02 · 缺少入口文件
+[S3 Checkup] 没有 index.html —— 发布页会拒绝，站点会 404。
+[S3 Checkup] 下一步：仍允许继续体检
+[S3 Checkup] E03 · 文件总量超限
+[S3 Checkup] 上限 16 MB / 2000 个文件。此目录 34 MB / 812 个。
+[S3 Checkup] 下一步：提供「排除目录」输入
+[S3 Checkup] E04 · 单文件超 8 MiB
+[S3 Checkup] 3 个文件超 8 MiB，协议会静默跳过 —— 已替你标出。
+[S3 Checkup] 下一步：列出文件名
+[S3 Checkup] E05 · 浏览器不支持 WebAssembly
+[S3 Checkup] 浏览器跑不了运行时。换新版 Chrome / Edge / Safari，或用 CLI。
+[S3 Checkup] 下一步：给出一行 CLI 命令
+[S3 Checkup] E06 · 压缩过程出错
+[S3 Checkup] 中断：<错误信息>。源目录未改动，重跑通常即可。
+[S3 Checkup] 下一步：带「复制错误详情」
+[S3 Checkup] E07 · 全部文件都被剔除
+[S3 Checkup] 文件都被判为「非站点资源」，产物为空 —— 多半是选错目录。
+[S3 Checkup] 下一步：回到选择
+[S3 Checkup] E08 · 浏览器内存不足
+[S3 Checkup] 内存不足。试试分批，或用 CLI 跑整站。
+[S3 Checkup] 下一步：见 S10 三种用法
+[S4 Gas Model] 计费模型
+[S4 Gas Model] TRK-02
+[S4 Gas Model] 协议不替你压缩。你传多少字节，就永久付多少字节的钱。
+[S4 Gas Model] TapeCode 把站点原样写进链上合约，没有 gzip / brotli / WebP 转换。账单是死的：
+[S4 Gas Model] 常量
+[S4 Gas Model] 值
+[S4 Gas Model] 含义
+[S4 Gas Model] CHUNK_BYTES
+[S4 Gas Model] 24,000
+[S4 Gas Model] 每 24 KB 切一块，一块 = 一笔交易
+[S4 Gas Model] perChunk
+[S4 Gas Model] 270,000 gas
+[S4 Gas Model] 每块固定开销（交易本身、目录槽位、事件）
+[S4 Gas Model] perByte
+[S4 Gas Model] 235 gas
+[S4 Gas Model] 每一个字节，永久
+[S4 Gas Model] 地板价
+[S4 Gas Model] 0.05 gwei（BSC）
+[S4 Gas Model] gasPrice = max(地板价, min(实时价, 20 × 地板价))
+[S4 Gas Model] 单文件上限
+[S4 Gas Model] 8 MiB
+[S4 Gas Model] 超限文件静默跳过，界面不报错
+[S4 Gas Model] 计费公式
+[S4 Gas Model] gas ≈ 块数 × 270,000 + 字节数 ×
+[S4 Gas Model] 235
+[S4 Gas Model] 参考价
+[S4 Gas Model] 1 MB 纯数据 ≈ 0.0129 BNB ≈ $9.60
+[S4 Gas Model] BSC 地板价 0.05 gwei · BNB $747 · 基准 2026-10
+[S4 Gas Model] 币价与拥堵会改变最终金额；改参数后此处实时重算。
+[S4 Gas Model] 多文件比大文件贵
+[S4 Gas Model] 块数按文件各自向上取整。10 个 3 KB 小文件 = 10 块 = 270 万 gas 纯块开销，总共才 30 KB。
+[S4 Gas Model] 只改一个文件，只花那一个文件的钱
+[S4 Gas Model] 同路径 + 同 sha256 会跳过。改动文件整份重传 —— 240 KB 图压到 60 KB，每次改版都省。
+[S4 Gas Model] 别把垃圾传上去
+[S4 Gas Model] README.md、.map、设计稿照样按字节计费；隐藏文件（.shots/、.DS_Store）整个跳过。
+[S5 Features] 功能说明
+[S5 Features] TRK-03
+[S5 Features] 八件事，每件都带一条证据。
+[S5 Features] 顺序即使用顺序：体检 → 压缩 → 校验 → 账单。
+[S5 Features] 体检 / Checkup
+[S5 Features] 先说清「上传哪些文件、共多少钱」，一个字节都不改。
+[S5 Features] ▸ 只读；列出会跳过 / 断链 / 死文件 / 重复 / Content-Type 问题
+[S5 Features] 压缩 / Shrink
+[S5 Features] 文本压缩、图片重编码、剔除无用文件，默认安全档。
+[S5 Features] ▸ 实测：icon-512.png 246,638 → 55,979（−77%）；chain.js 20,496 → 6,931（−66%）
+[S5 Features] 校验 / Verification
+[S5 Features] 压完自动对拍 10 项，fail 就不让你发布。
+[S5 Features] ▸ 防的是：把内联脚本依赖的 NixieClock 改名 → 一堆 ReferenceError
+[S5 Features] 增量账单 / Incremental bill
+[S5 Features] 只改了一个文件？只算那一个文件的钱。
+[S5 Features] ▸ 同路径 + 同 sha256 跳过；变了的整份重传
+[S5 Features] 预估 / Estimate
+[S5 Features] 「再加一张 2 MB 图要多少？」先算钱，再决定。
+[S5 Features] ▸ 纯计算，不用真的读文件
+[S5 Features] 计费模型 / Gas model
+[S5 Features] 常量、公式、1 MB 参考价，全摊开。
+[S5 Features] ▸ 24,000 B / 块 · 270,000 gas / 块 · 235 gas / 字节 · BSC 地板价 0.05 gwei
+[S5 Features] 三种形态 / Three shapes
+[S5 Features] 网页点一下、命令行一行，或让 agent 走 MCP。
+[S5 Features] ▸ 网页版与 CLI 同一算法，产物字节一致（有测试）
+[S5 Features] 不原地改 / Never in place
+[S5 Features] 源目录只读，产物写到独立的 .tape 目录。
+[S5 Features] ▸ 有断言盯着「源目录零改动」
+[S6 How It Works] 工作原理
+[S6 How It Works] TRK-04
+[S6 How It Works] 四步，全部在本地完成。
+[S6 How It Works] 01
+[S6 How It Works] 扫描 / Scan
+[S6 How It Works] 按路径读一遍，算出文件、字节、块数、gas 和钱，并标出协议会跳过的文件。
+[S6 How It Works] 02
+[S6 How It Works] 压缩 / Shrink
+[S6 How It Works] 文本压缩（顶层名不许改名），图片按 PSNR 门限逐档试，取最小档。
+[S6 How It Works] 03
+[S6 How It Works] 校验 / Verify
+[S6 How It Works] 10 项检查对拍原文：引用、全局名、Content-Type、图片尺寸、体积。
+[S6 How It Works] 04
+[S6 How It Works] 出账单 / Bill
+[S6 How It Works] 前后对比、省下的钱、这一版的增量，产物打包 .tape.zip。
+[S7 Case Study] 实测
+[S7 Case Study] TRK-05
+[S7 Case Study] 一个真实站点，一轮优化，省掉一半。
+[S7 Case Study] super-lock（辉光管时钟 PWA）· 20 文件 · 0.05 gwei · BNB $747.31
+[S7 Case Study] 优化前
+[S7 Case Study] 801,960 B  ·  $7.51
+[S7 Case Study] 优化后
+[S7 Case Study] 408,755 B  ·  $3.88
+[S7 Case Study] −49.0%  ·  省下 384 KB  ·  $3.62  ·  少发 17 笔交易
+[S7 Case Study] 
+[S7 Case Study] 文件数
+[S7 Case Study] 字节数
+[S7 Case Study] 块（=交易）
+[S7 Case Study] gas
+[S7 Case Study] BNB
+[S7 Case Study] USD
+[S7 Case Study] 优化前
+[S7 Case Study] 20
+[S7 Case Study] 801,960
+[S7 Case Study] 46
+[S7 Case Study] 200,880,600
+[S7 Case Study] 0.010044
+[S7 Case Study] $7.51
+[S7 Case Study] 优化后
+[S7 Case Study] 20
+[S7 Case Study] 408,755
+[S7 Case Study] 29
+[S7 Case Study] 103,887,425
+[S7 Case Study] 0.005194
+[S7 Case Study] $3.88
+[S7 Case Study] 省下
+[S7 Case Study] —
+[S7 Case Study] 384 KB（49.0%）
+[S7 Case Study] 17
+[S7 Case Study] 96,993,175
+[S7 Case Study] 0.001850
+[S7 Case Study] $3.62
+[S7 Case Study] 钱省在哪
+[S7 Case Study] icons/icon-512.png　246,638 → 55,979（−77%）
+[S7 Case Study] 同格式调色板量化（仍 .png，路径引用不动），落在 q85 / 42.7 dB
+[S7 Case Study] icons/icon-maskable-512.png　121,529 → 23,070（−81%）
+[S7 Case Study] 同样的调色板量化流程
+[S7 Case Study] chain.js −66%　clock.js −47%　sw.js −47%　pwa.js −42%
+[S7 Case Study] minify + 「顶层名字不许改名」守卫
+[S7 Case Study] index.html　保守档 −3%　激进档 −37%（69,242 → 43,706）
+[S7 Case Study] 去属性引号 + 折叠空白 + 压内联 CSS/JS，默认不开
+[S7 Case Study] 这就是「先体检再上链」和「直接点发布」的差距。
+[S8 Iteration] 长期成本
+[S8 Iteration] TRK-06
+[S8 Iteration] 迭代成本不取决于站点多大，取决于每次改动的那几个文件多大。
+[S8 Iteration] 同一路径 + 同一 sha256 的文件会被跳过；变了的文件整份重传。
+[S8 Iteration] 推论：800 KB 站点每次只改一个 20 KB 的 JS，就只付 20 KB。大资源改一次即永久免费 —— 它们是「一次性成本」，代码才是「每次成本」。
+[S8 Iteration] 策略 / 6 轮迭代
+[S8 Iteration] 6 轮累计
+[S8 Iteration] 说明
+[S8 Iteration] A · 不压缩
+[S8 Iteration] $10.39
+[S8 Iteration] 源码原样传，改动按未压缩字节算
+[S8 Iteration] B · 压缩 + 增量
+[S8 Iteration] BEST
+[S8 Iteration] $5.03
+[S8 Iteration] 一直传压缩版，协议自动跳过没变的文件
+[S8 Iteration] C · 先不压缩、第 3 轮才改用压缩
+[S8 Iteration] $10.43
+[S8 Iteration] 切换那一轮要全站重传，反而比 A 还贵
+[S8 Iteration] 策略 C  $10.43  >  $10.39  策略 A —— 中途切换压缩参数，反而比一直不压缩还贵。
+[S8 Iteration] 01
+[S8 Iteration] 第一轮就用压缩版
+[S8 Iteration] 中途切换要全站重传，可能比一直不压缩还贵。
+[S8 Iteration] 02
+[S8 Iteration] 保持压缩参数不变
+[S8 Iteration] 改了 psnrTarget 或激进档会整批重传；先跑一遍增量账单。
+[S8 Iteration] 03
+[S8 Iteration] 优先压「反复改动」的文件
+[S8 Iteration] 大图片是首付，index.html、主 JS 才是真正的每次成本。
+[S8 Iteration] 两个意外好处
+[S8 Iteration] 只改注释不花钱（压缩去掉注释 → 字节不变 → 跳过）。换个未优化的图也可能免费（压缩后与旧图一致）。
+[S8 Iteration] $ deweb-shrink diff ./site_v2 --previous ./site_v1 --gas 0.05 --usd 750
+[S9 Limits] 边界
+[S9 Limits] TRK-07
+[S9 Limits] 我们不做的事，也写在页面上。
+[S9 Limits] 不做 / SKIPPED
+[S9 Limits] 不做字体子集化
+[S9 Limits] 字体 176.5 KB，占优化后 44%，最大一项。子集化要重裁字形，且需先有「码位覆盖」校验，否则会变豆腐块。工具只报数：约还能省 88 KB。
+[S9 Limits] 不做 / SKIPPED
+[S9 Limits] 不直接发交易
+[S9 Limits] 只碰文件系统，不发交易、不签名。发布仍走 TapeCode。
+[S9 Limits] 不做 / SKIPPED
+[S9 Limits] .well-known/ 传不上去
+[S9 Limits] 以 . 开头的路径段被判为隐藏文件、静默跳过，域名验证与 ACME 都不可用。
+[S9 Limits] 不做 / SKIPPED
+[S9 Limits] 8 MiB 以上的文件界面不报错
+[S9 Limits] 协议静默跳过。我们会标出来，发布页不会。
+[S9 Limits] 不做 / SKIPPED
+[S9 Limits] 改了压缩参数 = 全站重传
+[S9 Limits] 参数一变，文件字节可能全变，被判定为全新内容。
+[S9 Limits] 不做 / SKIPPED
+[S9 Limits] 死文件结论是保守的
+[S9 Limits] 只看静态引用；运行时拼出的名字靠 basename / 目录前缀兜底，宁可漏报也不误删。
+[S9 Limits] 不做 / SKIPPED
+[S9 Limits] 图片质量门限是按 PSNR 量的
+[S9 Limits] PSNR 不是人眼模型。42 dB 只是这几张图看不出差别的位置，换站点建议调高再比。
+[S9 Limits] 一个不告诉你边界的压缩工具，不值得把站点交给它。
+[S10 Get Started] 三种用法
+[S10 Get Started] TRK-08
+[S10 Get Started] 网页里点一下，命令行一行，或者交给 agent。
+[S10 Get Started] 网页版（本页）
+[S10 Get Started] 命令行 CLI
+[S10 Get Started] MCP（给 agent 用）
+[S10 Get Started] 零安装。文件不出本机。
+[S10 Get Started] 本页即网页版：图片只做无损重压；要调色板量化请看 CLI / MCP。
+[S10 Get Started] Tab 2 · 命令行
+[S10 Get Started] 复制
+[S10 Get Started] npm install && npm test          # 98 个测试，含端到端与链上实测对拍
+[S10 Get Started] node src/cli.js model            # 打印计费模型
+[S10 Get Started] node src/cli.js scan     ..      --exclude deweb-shrink,.shots
+[S10 Get Started] node src/cli.js optimize ..      --exclude deweb-shrink,.shots --out ../site.tape
+[S10 Get Started] node src/cli.js diff     ./v2    --previous ./v1 --gas 0.05 --usd 750
+[S10 Get Started] Tab 3 · MCP（给 agent 用）
+[S10 Get Started] 一个 MCP server，六个工具：cost_model / scan / estimate / optimize / verify / diff。本地 stdio 或服务器 HTTP。
+[S10 Get Started] 服务端形态要 API key，请放在服务端 —— 不要写进前端代码。
+[S10 Get Started] 查看接入说明
+[S10 Get Started] 复制 agent 提示词
+[S11 FAQ] FAQ
+[S11 FAQ] TRK-09
+[S11 FAQ] 十一个问题，逐条给答案。
+[S11 FAQ] 01
+[S11 FAQ] 我的文件会上传到你们的服务器吗？
+[S11 FAQ] 网页版全程在本机浏览器（WebAssembly），一个字节都不外发。服务端 MCP 是另一套入口，需你显式传文件。
+[S11 FAQ] 02
+[S11 FAQ] 协议不是会自动 gzip 吗？
+[S11 FAQ] 03
+[S11 FAQ] 会不会把我的站点压坏？
+[S11 FAQ] 04
+[S11 FAQ] 为什么我改了参数，费用反而变高了？
+[S11 FAQ] 05
+[S11 FAQ] 为什么 8 MiB 以上的文件界面不报错？
+[S11 FAQ] 06
+[S11 FAQ] 为什么 .well-known/ 传不上去？
+[S11 FAQ] 07
+[S11 FAQ] 字体这么大，能压吗？
+[S11 FAQ] 08
+[S11 FAQ] 会替我发交易吗？
+[S11 FAQ] 09
+[S11 FAQ] 网页版和 CLI / MCP 版结果一样吗？
+[S11 FAQ] 10
+[S11 FAQ] 支持哪些链？
+[S11 FAQ] 11
+[S11 FAQ] 要不要注册、要不要钱？
+[S12 Footer] DeWEBShrink
+[S12 Footer] DeWEBShrink · 给链上站点做上链前体检与压缩。
+[S12 Footer] 产品
+[S12 Footer] 在线体检
+[S12 Footer] 功能
+[S12 Footer] 工作原理
+[S12 Footer] 案例
+[S12 Footer] 接入
+[S12 Footer] CLI
+[S12 Footer] MCP
+[S12 Footer] 接入文档
+[S12 Footer] agent 提示词
+[S12 Footer] 项目
+[S12 Footer] 版本 v0.3.0
+[S12 Footer] 变更记录
+[S12 Footer] 问题反馈
+[S12 Footer] 免责声明：费用为按当前 gasPrice 与币价的估算，实际以发布页为准。本工具不发送交易、不保存文件。
+[S12 Footer] © 2026 DeWEBShrink
+[S12 Footer] 中文
+[S12 Footer] EN
+[S12 Footer] 不发送交易 · 不保存文件 · 本地运行

@@ -1,0 +1,15 @@
+node_modules/
+*.tape/
+*.report.json
+# 测试站点是生成物（13 MB，含一个 9 MB 的「超限」样本），用 npm run fixtures 重建
+fixtures/
+
+# PoC：本地 npm 缓存与构建产物（构建产物由 npm run poc:build 生成）
+.npm-cache/
+poc/dist/
+poc/web/dist/
+
+# 官网：运行时与样式产物（13 MB，含 12 MB 的 esbuild.wasm）由 npm run site:build 生成
+web/assets/
+# 官网：验收截图（现场证据，不进仓库）
+web/.preview/

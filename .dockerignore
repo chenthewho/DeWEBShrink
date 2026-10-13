@@ -1,0 +1,12 @@
+# 这些都不该进镜像
+node_modules
+fixtures
+.git
+.gitignore
+*.tape
+*.md
+*-report.txt
+billing-report.json
+Dockerfile
+docker-compose.yml
+.dockerignore
